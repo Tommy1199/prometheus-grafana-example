@@ -1,0 +1,8 @@
+[Unit]
+Description=Dummy
+
+[Service]
+ExecStart=/bin/sleep infinity
+
+[Install]
+WantedBy=default.target
