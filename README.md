@@ -11,8 +11,6 @@ This is a little playground to see how prometheus and grafana can be used to mon
   <dd>A visualization frontend for monitoring and analysis purposes.</dd>
 </dl>
 
-3. 
-
 ### Prerequistes
 
 1. [Install Virtualbox](https://www.virtualbox.org/)
@@ -54,7 +52,7 @@ sudo systemctl stop dummy1 dummy2
 or kill one of the process by checking the pid with
 
 ```
-sudo systemctl status dummy1
+sudo systemctl status dummy6
 ```
 
 and then
