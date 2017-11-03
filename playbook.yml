@@ -99,4 +99,3 @@
         return_content: yes
         body_format: json
         body: "{{ lookup('file','create_dashboard_request.json') }}"
-        status_code: 200
