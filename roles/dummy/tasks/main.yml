@@ -1,0 +1,13 @@
+---
+- name: Unit file for dummy service copied
+  copy:
+    src: dummy.service
+    dest: "/etc/systemd/system/dummy{{ item }}.service"
+  with_sequence: start=1 end=10
+- name: Dummy service started
+  systemd:
+    name: "dummy{{ item }}"
+    daemon_reload: yes
+    enabled: yes
+    state: started
+  with_sequence: start=1 end=10

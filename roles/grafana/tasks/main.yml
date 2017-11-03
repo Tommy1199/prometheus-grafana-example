@@ -1,0 +1,32 @@
+---
+- name: Grafana installed
+  yum:
+    name: https://s3-us-west-2.amazonaws.com/grafana-releases/release/grafana-4.6.1-1.x86_64.rpm
+    state: present
+- name: Grafana started
+  systemd:
+    name: grafana-server
+    daemon_reload: yes
+    enabled: yes
+    state: started
+- name: Datasource in Grafana created
+  uri: 
+    url: "http://localhost:3000/api/datasources"
+    user: admin
+    password: admin
+    force_basic_auth: yes
+    method: POST
+    return_content: yes
+    body_format: json
+    body: "{{ lookup('file','create_datasource_request.json') }}"
+    status_code: 200, 409
+- name: Dashboard in Grafana created
+  uri: 
+    url: "http://localhost:3000/api/dashboards/db"
+    user: admin
+    password: admin
+    force_basic_auth: yes
+    method: POST
+    return_content: yes
+    body_format: json
+    body: "{{ lookup('file','create_dashboard_request.json') }}"

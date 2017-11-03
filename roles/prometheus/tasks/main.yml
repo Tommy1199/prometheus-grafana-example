@@ -1,0 +1,31 @@
+---
+- name: Prometheus dir exists
+  file:
+    path: /home/prometheus/prometheus
+    state: directory
+- name: Prometheus into /home/prometheus/prometheus extracted
+  unarchive:
+    remote_src: yes
+    src: https://github.com/prometheus/prometheus/releases/download/v1.8.1/prometheus-1.8.1.linux-amd64.tar.gz
+    dest: /home/prometheus/prometheus
+    creates: /home/prometheus/prometheus/prometheus-1.8.1.linux-amd64/prometheus
+- name: Prometheus data dir exists
+  file:
+    path: /home/prometheus/prometheus/prometheus-1.8.1.linux-amd64/data
+    state: directory
+    owner: prometheus
+    group: prometheus
+- name: Unit file for prometheus copied
+  copy:
+    src: prometheus.service
+    dest: /etc/systemd/system/prometheus.service
+- name: Configuration file for prometheus copied
+  copy:
+    src: prometheus.yml
+    dest: /home/prometheus/prometheus/prometheus-1.8.1.linux-amd64/prometheus.yml
+- name: Prometheus started
+  systemd:
+    name: prometheus
+    daemon_reload: yes
+    enabled: yes
+    state: started

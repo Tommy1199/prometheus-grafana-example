@@ -1,0 +1,21 @@
+---
+- name: Node exporter dir exists
+  file:
+    path: /home/prometheus/node_exporter
+    state: directory
+- name: Node exporter into /home/prometheus/node_exporter extracted
+  unarchive:
+    remote_src: yes
+    src: https://github.com/prometheus/node_exporter/releases/download/v0.14.0/node_exporter-0.14.0.linux-amd64.tar.gz
+    dest: /home/prometheus/node_exporter
+    creates: /home/prometheus/node_exporter/node_exporter-0.14.0.linux-amd64/node_exporter
+- name: Unit file for node exporter copied
+  copy:
+    src: node_exporter.service
+    dest: /etc/systemd/system/node_exporter.service
+- name: Node exporter started
+  systemd:
+    name: node_exporter
+    daemon_reload: yes
+    enabled: yes
+    state: started
