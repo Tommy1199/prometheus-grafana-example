@@ -1,0 +1,1124 @@
+{
+	"dashboard": {
+  		"__requires": [
+  		  {
+  		    "type": "grafana",
+  		    "id": "grafana",
+  		    "name": "Grafana",
+  		    "version": "4.6.1"
+  		  },
+  		  {
+  		    "type": "panel",
+  		    "id": "graph",
+  		    "name": "Graph",
+  		    "version": ""
+  		  },
+  		  {
+  		    "type": "datasource",
+  		    "id": "prometheus",
+  		    "name": "Prometheus",
+  		    "version": "1.0.0"
+  		  },
+  		  {
+  		    "type": "panel",
+  		    "id": "singlestat",
+  		    "name": "Singlestat",
+  		    "version": ""
+  		  }
+  		],
+  		"annotations": {
+  		  "list": [
+  		    {
+  		      "builtIn": 1,
+  		      "datasource": "-- Grafana --",
+  		      "enable": true,
+  		      "hide": true,
+  		      "iconColor": "rgba(0, 211, 255, 1)",
+  		      "name": "Annotations & Alerts",
+  		      "type": "dashboard"
+  		    }
+  		  ]
+  		},
+  		"description": "Show state of dummy services",
+  		"editable": true,
+  		"gnetId": null,
+  		"graphTooltip": 0,
+  		"hideControls": false,
+  		"id": null,
+  		"links": [],
+  		"refresh": "5s",
+  		"rows": [
+  		  {
+  		    "collapse": false,
+  		    "height": "50px",
+  		    "panels": [
+  		      {
+  		        "cacheTimeout": null,
+  		        "colorBackground": false,
+  		        "colorValue": true,
+  		        "colors": [
+  		          "rgba(245, 54, 54, 0.9)",
+  		          "rgba(120,120,120, 0.89)",
+  		          "rgba(50, 172, 45, 0.97)"
+  		        ],
+  		        "datasource": "prometheus2",
+  		        "format": "none",
+  		        "gauge": {
+  		          "maxValue": 100,
+  		          "minValue": 0,
+  		          "show": false,
+  		          "thresholdLabels": false,
+  		          "thresholdMarkers": true
+  		        },
+  		        "height": "50px",
+  		        "id": 6,
+  		        "interval": null,
+  		        "links": [],
+  		        "mappingType": 1,
+  		        "mappingTypes": [
+  		          {
+  		            "name": "value to text",
+  		            "value": 1
+  		          },
+  		          {
+  		            "name": "range to text",
+  		            "value": 2
+  		          }
+  		        ],
+  		        "maxDataPoints": 100,
+  		        "nullPointMode": "connected",
+  		        "nullText": null,
+  		        "postfix": "",
+  		        "postfixFontSize": "50%",
+  		        "prefix": "",
+  		        "prefixFontSize": "50%",
+  		        "rangeMaps": [
+  		          {
+  		            "from": "null",
+  		            "text": "N/A",
+  		            "to": "null"
+  		          }
+  		        ],
+  		        "span": 2,
+  		        "sparkline": {
+  		          "fillColor": "rgba(31, 118, 189, 0.18)",
+  		          "full": false,
+  		          "lineColor": "rgb(31, 120, 193)",
+  		          "show": false
+  		        },
+  		        "tableColumn": "",
+  		        "targets": [
+  		          {
+  		            "expr": "(node_systemd_unit_state{name=\"dummy1.service\", state=\"active\"} * 1) + ignoring(state) (node_systemd_unit_state{name=\"dummy1.service\", state=\"failed\"} * -1)",
+  		            "format": "time_series",
+  		            "instant": true,
+  		            "interval": "1m",
+  		            "intervalFactor": 2,
+  		            "legendFormat": "",
+  		            "metric": "node_systemd_unit_state",
+  		            "refId": "A",
+  		            "step": 600
+  		          }
+  		        ],
+  		        "thresholds": "-0.9, 0.9",
+  		        "title": "Dummy1 Service",
+  		        "type": "singlestat",
+  		        "valueFontSize": "100%",
+  		        "valueMaps": [
+  		          {
+  		            "op": "=",
+  		            "text": "down",
+  		            "value": "-1"
+  		          },
+  		          {
+  		            "op": "=",
+  		            "text": "off",
+  		            "value": "0"
+  		          },
+  		          {
+  		            "op": "=",
+  		            "text": "up",
+  		            "value": "1"
+  		          }
+  		        ],
+  		        "valueName": "current"
+  		      },
+  		      {
+  		        "cacheTimeout": null,
+  		        "colorBackground": false,
+  		        "colorValue": true,
+  		        "colors": [
+  		          "rgba(245, 54, 54, 0.9)",
+  		          "rgba(120,120,120, 0.89)",
+  		          "rgba(50, 172, 45, 0.97)"
+  		        ],
+  		        "datasource": "prometheus2",
+  		        "format": "none",
+  		        "gauge": {
+  		          "maxValue": 100,
+  		          "minValue": 0,
+  		          "show": false,
+  		          "thresholdLabels": false,
+  		          "thresholdMarkers": true
+  		        },
+  		        "height": "50px",
+  		        "id": 7,
+  		        "interval": null,
+  		        "links": [],
+  		        "mappingType": 1,
+  		        "mappingTypes": [
+  		          {
+  		            "name": "value to text",
+  		            "value": 1
+  		          },
+  		          {
+  		            "name": "range to text",
+  		            "value": 2
+  		          }
+  		        ],
+  		        "maxDataPoints": 100,
+  		        "nullPointMode": "connected",
+  		        "nullText": null,
+  		        "postfix": "",
+  		        "postfixFontSize": "50%",
+  		        "prefix": "",
+  		        "prefixFontSize": "50%",
+  		        "rangeMaps": [
+  		          {
+  		            "from": "null",
+  		            "text": "N/A",
+  		            "to": "null"
+  		          }
+  		        ],
+  		        "span": 2,
+  		        "sparkline": {
+  		          "fillColor": "rgba(31, 118, 189, 0.18)",
+  		          "full": false,
+  		          "lineColor": "rgb(31, 120, 193)",
+  		          "show": false
+  		        },
+  		        "tableColumn": "",
+  		        "targets": [
+  		          {
+  		            "expr": "(node_systemd_unit_state{name=\"dummy2.service\", state=\"active\"} * 1) + ignoring(state) (node_systemd_unit_state{name=\"dummy2.service\", state=\"failed\"} * -1)",
+  		            "format": "time_series",
+  		            "instant": true,
+  		            "interval": "1m",
+  		            "intervalFactor": 2,
+  		            "legendFormat": "",
+  		            "metric": "node_systemd_unit_state",
+  		            "refId": "A",
+  		            "step": 600
+  		          }
+  		        ],
+  		        "thresholds": "-0.9, 0.9",
+  		        "title": "Dummy2 Service",
+  		        "type": "singlestat",
+  		        "valueFontSize": "100%",
+  		        "valueMaps": [
+  		          {
+  		            "op": "=",
+  		            "text": "down",
+  		            "value": "-1"
+  		          },
+  		          {
+  		            "op": "=",
+  		            "text": "off",
+  		            "value": "0"
+  		          },
+  		          {
+  		            "op": "=",
+  		            "text": "up",
+  		            "value": "1"
+  		          }
+  		        ],
+  		        "valueName": "current"
+  		      },
+  		      {
+  		        "cacheTimeout": null,
+  		        "colorBackground": false,
+  		        "colorValue": true,
+  		        "colors": [
+  		          "rgba(245, 54, 54, 0.9)",
+  		          "rgba(120,120,120, 0.89)",
+  		          "rgba(50, 172, 45, 0.97)"
+  		        ],
+  		        "datasource": "prometheus2",
+  		        "format": "none",
+  		        "gauge": {
+  		          "maxValue": 100,
+  		          "minValue": 0,
+  		          "show": false,
+  		          "thresholdLabels": false,
+  		          "thresholdMarkers": true
+  		        },
+  		        "height": "50px",
+  		        "id": 8,
+  		        "interval": null,
+  		        "links": [],
+  		        "mappingType": 1,
+  		        "mappingTypes": [
+  		          {
+  		            "name": "value to text",
+  		            "value": 1
+  		          },
+  		          {
+  		            "name": "range to text",
+  		            "value": 2
+  		          }
+  		        ],
+  		        "maxDataPoints": 100,
+  		        "nullPointMode": "connected",
+  		        "nullText": null,
+  		        "postfix": "",
+  		        "postfixFontSize": "50%",
+  		        "prefix": "",
+  		        "prefixFontSize": "50%",
+  		        "rangeMaps": [
+  		          {
+  		            "from": "null",
+  		            "text": "N/A",
+  		            "to": "null"
+  		          }
+  		        ],
+  		        "span": 2,
+  		        "sparkline": {
+  		          "fillColor": "rgba(31, 118, 189, 0.18)",
+  		          "full": false,
+  		          "lineColor": "rgb(31, 120, 193)",
+  		          "show": false
+  		        },
+  		        "tableColumn": "",
+  		        "targets": [
+  		          {
+  		            "expr": "(node_systemd_unit_state{name=\"dummy3.service\", state=\"active\"} * 1) + ignoring(state) (node_systemd_unit_state{name=\"dummy3.service\", state=\"failed\"} * -1)",
+  		            "format": "time_series",
+  		            "instant": true,
+  		            "interval": "1m",
+  		            "intervalFactor": 2,
+  		            "legendFormat": "",
+  		            "metric": "node_systemd_unit_state",
+  		            "refId": "A",
+  		            "step": 600
+  		          }
+  		        ],
+  		        "thresholds": "-0.9, 0.9",
+  		        "title": "Dummy3 Service",
+  		        "type": "singlestat",
+  		        "valueFontSize": "100%",
+  		        "valueMaps": [
+  		          {
+  		            "op": "=",
+  		            "text": "down",
+  		            "value": "-1"
+  		          },
+  		          {
+  		            "op": "=",
+  		            "text": "off",
+  		            "value": "0"
+  		          },
+  		          {
+  		            "op": "=",
+  		            "text": "up",
+  		            "value": "1"
+  		          }
+  		        ],
+  		        "valueName": "current"
+  		      },
+  		      {
+  		        "cacheTimeout": null,
+  		        "colorBackground": false,
+  		        "colorValue": true,
+  		        "colors": [
+  		          "rgba(245, 54, 54, 0.9)",
+  		          "rgba(120,120,120, 0.89)",
+  		          "rgba(50, 172, 45, 0.97)"
+  		        ],
+  		        "datasource": "prometheus2",
+  		        "format": "none",
+  		        "gauge": {
+  		          "maxValue": 100,
+  		          "minValue": 0,
+  		          "show": false,
+  		          "thresholdLabels": false,
+  		          "thresholdMarkers": true
+  		        },
+  		        "height": "50px",
+  		        "id": 9,
+  		        "interval": null,
+  		        "links": [],
+  		        "mappingType": 1,
+  		        "mappingTypes": [
+  		          {
+  		            "name": "value to text",
+  		            "value": 1
+  		          },
+  		          {
+  		            "name": "range to text",
+  		            "value": 2
+  		          }
+  		        ],
+  		        "maxDataPoints": 100,
+  		        "nullPointMode": "connected",
+  		        "nullText": null,
+  		        "postfix": "",
+  		        "postfixFontSize": "50%",
+  		        "prefix": "",
+  		        "prefixFontSize": "50%",
+  		        "rangeMaps": [
+  		          {
+  		            "from": "null",
+  		            "text": "N/A",
+  		            "to": "null"
+  		          }
+  		        ],
+  		        "span": 2,
+  		        "sparkline": {
+  		          "fillColor": "rgba(31, 118, 189, 0.18)",
+  		          "full": false,
+  		          "lineColor": "rgb(31, 120, 193)",
+  		          "show": false
+  		        },
+  		        "tableColumn": "",
+  		        "targets": [
+  		          {
+  		            "expr": "(node_systemd_unit_state{name=\"dummy4.service\", state=\"active\"} * 1) + ignoring(state) (node_systemd_unit_state{name=\"dummy4.service\", state=\"failed\"} * -1)",
+  		            "format": "time_series",
+  		            "instant": true,
+  		            "interval": "1m",
+  		            "intervalFactor": 2,
+  		            "legendFormat": "",
+  		            "metric": "node_systemd_unit_state",
+  		            "refId": "A",
+  		            "step": 600
+  		          }
+  		        ],
+  		        "thresholds": "-0.9, 0.9",
+  		        "title": "Dummy4 Service",
+  		        "type": "singlestat",
+  		        "valueFontSize": "100%",
+  		        "valueMaps": [
+  		          {
+  		            "op": "=",
+  		            "text": "down",
+  		            "value": "-1"
+  		          },
+  		          {
+  		            "op": "=",
+  		            "text": "off",
+  		            "value": "0"
+  		          },
+  		          {
+  		            "op": "=",
+  		            "text": "up",
+  		            "value": "1"
+  		          }
+  		        ],
+  		        "valueName": "current"
+  		      },
+  		      {
+  		        "cacheTimeout": null,
+  		        "colorBackground": false,
+  		        "colorValue": true,
+  		        "colors": [
+  		          "rgba(245, 54, 54, 0.9)",
+  		          "rgba(120,120,120, 0.89)",
+  		          "rgba(50, 172, 45, 0.97)"
+  		        ],
+  		        "datasource": "prometheus2",
+  		        "format": "none",
+  		        "gauge": {
+  		          "maxValue": 100,
+  		          "minValue": 0,
+  		          "show": false,
+  		          "thresholdLabels": false,
+  		          "thresholdMarkers": true
+  		        },
+  		        "height": "50px",
+  		        "id": 10,
+  		        "interval": null,
+  		        "links": [],
+  		        "mappingType": 1,
+  		        "mappingTypes": [
+  		          {
+  		            "name": "value to text",
+  		            "value": 1
+  		          },
+  		          {
+  		            "name": "range to text",
+  		            "value": 2
+  		          }
+  		        ],
+  		        "maxDataPoints": 100,
+  		        "nullPointMode": "connected",
+  		        "nullText": null,
+  		        "postfix": "",
+  		        "postfixFontSize": "50%",
+  		        "prefix": "",
+  		        "prefixFontSize": "50%",
+  		        "rangeMaps": [
+  		          {
+  		            "from": "null",
+  		            "text": "N/A",
+  		            "to": "null"
+  		          }
+  		        ],
+  		        "span": 2,
+  		        "sparkline": {
+  		          "fillColor": "rgba(31, 118, 189, 0.18)",
+  		          "full": false,
+  		          "lineColor": "rgb(31, 120, 193)",
+  		          "show": false
+  		        },
+  		        "tableColumn": "",
+  		        "targets": [
+  		          {
+  		            "expr": "(node_systemd_unit_state{name=\"dummy5.service\", state=\"active\"} * 1) + ignoring(state) (node_systemd_unit_state{name=\"dummy5.service\", state=\"failed\"} * -1)",
+  		            "format": "time_series",
+  		            "instant": true,
+  		            "interval": "1m",
+  		            "intervalFactor": 2,
+  		            "legendFormat": "",
+  		            "metric": "node_systemd_unit_state",
+  		            "refId": "A",
+  		            "step": 600
+  		          }
+  		        ],
+  		        "thresholds": "-0.9, 0.9",
+  		        "title": "Dummy5 Service",
+  		        "type": "singlestat",
+  		        "valueFontSize": "100%",
+  		        "valueMaps": [
+  		          {
+  		            "op": "=",
+  		            "text": "down",
+  		            "value": "-1"
+  		          },
+  		          {
+  		            "op": "=",
+  		            "text": "off",
+  		            "value": "0"
+  		          },
+  		          {
+  		            "op": "=",
+  		            "text": "up",
+  		            "value": "1"
+  		          }
+  		        ],
+  		        "valueName": "current"
+  		      },
+  		      {
+  		        "cacheTimeout": null,
+  		        "colorBackground": false,
+  		        "colorValue": true,
+  		        "colors": [
+  		          "rgba(245, 54, 54, 0.9)",
+  		          "rgba(120,120,120, 0.89)",
+  		          "rgba(50, 172, 45, 0.97)"
+  		        ],
+  		        "datasource": "prometheus2",
+  		        "format": "none",
+  		        "gauge": {
+  		          "maxValue": 100,
+  		          "minValue": 0,
+  		          "show": false,
+  		          "thresholdLabels": false,
+  		          "thresholdMarkers": true
+  		        },
+  		        "height": "50px",
+  		        "id": 11,
+  		        "interval": null,
+  		        "links": [],
+  		        "mappingType": 1,
+  		        "mappingTypes": [
+  		          {
+  		            "name": "value to text",
+  		            "value": 1
+  		          },
+  		          {
+  		            "name": "range to text",
+  		            "value": 2
+  		          }
+  		        ],
+  		        "maxDataPoints": 100,
+  		        "nullPointMode": "connected",
+  		        "nullText": null,
+  		        "postfix": "",
+  		        "postfixFontSize": "50%",
+  		        "prefix": "",
+  		        "prefixFontSize": "50%",
+  		        "rangeMaps": [
+  		          {
+  		            "from": "null",
+  		            "text": "N/A",
+  		            "to": "null"
+  		          }
+  		        ],
+  		        "span": 2,
+  		        "sparkline": {
+  		          "fillColor": "rgba(31, 118, 189, 0.18)",
+  		          "full": false,
+  		          "lineColor": "rgb(31, 120, 193)",
+  		          "show": false
+  		        },
+  		        "tableColumn": "",
+  		        "targets": [
+  		          {
+  		            "expr": "(node_systemd_unit_state{name=\"dummy6.service\", state=\"active\"} * 1) + ignoring(state) (node_systemd_unit_state{name=\"dummy6.service\", state=\"failed\"} * -1)",
+  		            "format": "time_series",
+  		            "instant": true,
+  		            "interval": "1m",
+  		            "intervalFactor": 2,
+  		            "legendFormat": "",
+  		            "metric": "node_systemd_unit_state",
+  		            "refId": "A",
+  		            "step": 600
+  		          }
+  		        ],
+  		        "thresholds": "-0.9, 0.9",
+  		        "title": "Dummy6 Service",
+  		        "type": "singlestat",
+  		        "valueFontSize": "100%",
+  		        "valueMaps": [
+  		          {
+  		            "op": "=",
+  		            "text": "down",
+  		            "value": "-1"
+  		          },
+  		          {
+  		            "op": "=",
+  		            "text": "off",
+  		            "value": "0"
+  		          },
+  		          {
+  		            "op": "=",
+  		            "text": "up",
+  		            "value": "1"
+  		          }
+  		        ],
+  		        "valueName": "current"
+  		      },
+  		      {
+  		        "cacheTimeout": null,
+  		        "colorBackground": false,
+  		        "colorValue": true,
+  		        "colors": [
+  		          "rgba(245, 54, 54, 0.9)",
+  		          "rgba(120,120,120, 0.89)",
+  		          "rgba(50, 172, 45, 0.97)"
+  		        ],
+  		        "datasource": "prometheus2",
+  		        "format": "none",
+  		        "gauge": {
+  		          "maxValue": 100,
+  		          "minValue": 0,
+  		          "show": false,
+  		          "thresholdLabels": false,
+  		          "thresholdMarkers": true
+  		        },
+  		        "height": "50px",
+  		        "id": 12,
+  		        "interval": null,
+  		        "links": [],
+  		        "mappingType": 1,
+  		        "mappingTypes": [
+  		          {
+  		            "name": "value to text",
+  		            "value": 1
+  		          },
+  		          {
+  		            "name": "range to text",
+  		            "value": 2
+  		          }
+  		        ],
+  		        "maxDataPoints": 100,
+  		        "nullPointMode": "connected",
+  		        "nullText": null,
+  		        "postfix": "",
+  		        "postfixFontSize": "50%",
+  		        "prefix": "",
+  		        "prefixFontSize": "50%",
+  		        "rangeMaps": [
+  		          {
+  		            "from": "null",
+  		            "text": "N/A",
+  		            "to": "null"
+  		          }
+  		        ],
+  		        "span": 2,
+  		        "sparkline": {
+  		          "fillColor": "rgba(31, 118, 189, 0.18)",
+  		          "full": false,
+  		          "lineColor": "rgb(31, 120, 193)",
+  		          "show": false
+  		        },
+  		        "tableColumn": "",
+  		        "targets": [
+  		          {
+  		            "expr": "(node_systemd_unit_state{name=\"dummy7.service\", state=\"active\"} * 1) + ignoring(state) (node_systemd_unit_state{name=\"dummy7.service\", state=\"failed\"} * -1)",
+  		            "format": "time_series",
+  		            "instant": true,
+  		            "interval": "1m",
+  		            "intervalFactor": 2,
+  		            "legendFormat": "",
+  		            "metric": "node_systemd_unit_state",
+  		            "refId": "A",
+  		            "step": 600
+  		          }
+  		        ],
+  		        "thresholds": "-0.9, 0.9",
+  		        "title": "Dummy7 Service",
+  		        "type": "singlestat",
+  		        "valueFontSize": "100%",
+  		        "valueMaps": [
+  		          {
+  		            "op": "=",
+  		            "text": "down",
+  		            "value": "-1"
+  		          },
+  		          {
+  		            "op": "=",
+  		            "text": "off",
+  		            "value": "0"
+  		          },
+  		          {
+  		            "op": "=",
+  		            "text": "up",
+  		            "value": "1"
+  		          }
+  		        ],
+  		        "valueName": "current"
+  		      },
+  		      {
+  		        "cacheTimeout": null,
+  		        "colorBackground": false,
+  		        "colorValue": true,
+  		        "colors": [
+  		          "rgba(245, 54, 54, 0.9)",
+  		          "rgba(120,120,120, 0.89)",
+  		          "rgba(50, 172, 45, 0.97)"
+  		        ],
+  		        "datasource": "prometheus2",
+  		        "format": "none",
+  		        "gauge": {
+  		          "maxValue": 100,
+  		          "minValue": 0,
+  		          "show": false,
+  		          "thresholdLabels": false,
+  		          "thresholdMarkers": true
+  		        },
+  		        "height": "50px",
+  		        "id": 13,
+  		        "interval": null,
+  		        "links": [],
+  		        "mappingType": 1,
+  		        "mappingTypes": [
+  		          {
+  		            "name": "value to text",
+  		            "value": 1
+  		          },
+  		          {
+  		            "name": "range to text",
+  		            "value": 2
+  		          }
+  		        ],
+  		        "maxDataPoints": 100,
+  		        "nullPointMode": "connected",
+  		        "nullText": null,
+  		        "postfix": "",
+  		        "postfixFontSize": "50%",
+  		        "prefix": "",
+  		        "prefixFontSize": "50%",
+  		        "rangeMaps": [
+  		          {
+  		            "from": "null",
+  		            "text": "N/A",
+  		            "to": "null"
+  		          }
+  		        ],
+  		        "span": 2,
+  		        "sparkline": {
+  		          "fillColor": "rgba(31, 118, 189, 0.18)",
+  		          "full": false,
+  		          "lineColor": "rgb(31, 120, 193)",
+  		          "show": false
+  		        },
+  		        "tableColumn": "",
+  		        "targets": [
+  		          {
+  		            "expr": "(node_systemd_unit_state{name=\"dummy8.service\", state=\"active\"} * 1) + ignoring(state) (node_systemd_unit_state{name=\"dummy8.service\", state=\"failed\"} * -1)",
+  		            "format": "time_series",
+  		            "instant": true,
+  		            "interval": "1m",
+  		            "intervalFactor": 2,
+  		            "legendFormat": "",
+  		            "metric": "node_systemd_unit_state",
+  		            "refId": "A",
+  		            "step": 600
+  		          }
+  		        ],
+  		        "thresholds": "-0.9, 0.9",
+  		        "title": "Dummy8 Service",
+  		        "type": "singlestat",
+  		        "valueFontSize": "100%",
+  		        "valueMaps": [
+  		          {
+  		            "op": "=",
+  		            "text": "down",
+  		            "value": "-1"
+  		          },
+  		          {
+  		            "op": "=",
+  		            "text": "off",
+  		            "value": "0"
+  		          },
+  		          {
+  		            "op": "=",
+  		            "text": "up",
+  		            "value": "1"
+  		          }
+  		        ],
+  		        "valueName": "current"
+  		      },
+  		      {
+  		        "cacheTimeout": null,
+  		        "colorBackground": false,
+  		        "colorValue": true,
+  		        "colors": [
+  		          "rgba(245, 54, 54, 0.9)",
+  		          "rgba(120,120,120, 0.89)",
+  		          "rgba(50, 172, 45, 0.97)"
+  		        ],
+  		        "datasource": "prometheus2",
+  		        "format": "none",
+  		        "gauge": {
+  		          "maxValue": 100,
+  		          "minValue": 0,
+  		          "show": false,
+  		          "thresholdLabels": false,
+  		          "thresholdMarkers": true
+  		        },
+  		        "height": "50px",
+  		        "id": 14,
+  		        "interval": null,
+  		        "links": [],
+  		        "mappingType": 1,
+  		        "mappingTypes": [
+  		          {
+  		            "name": "value to text",
+  		            "value": 1
+  		          },
+  		          {
+  		            "name": "range to text",
+  		            "value": 2
+  		          }
+  		        ],
+  		        "maxDataPoints": 100,
+  		        "nullPointMode": "connected",
+  		        "nullText": null,
+  		        "postfix": "",
+  		        "postfixFontSize": "50%",
+  		        "prefix": "",
+  		        "prefixFontSize": "50%",
+  		        "rangeMaps": [
+  		          {
+  		            "from": "null",
+  		            "text": "N/A",
+  		            "to": "null"
+  		          }
+  		        ],
+  		        "span": 2,
+  		        "sparkline": {
+  		          "fillColor": "rgba(31, 118, 189, 0.18)",
+  		          "full": false,
+  		          "lineColor": "rgb(31, 120, 193)",
+  		          "show": false
+  		        },
+  		        "tableColumn": "",
+  		        "targets": [
+  		          {
+  		            "expr": "(node_systemd_unit_state{name=\"dummy9.service\", state=\"active\"} * 1) + ignoring(state) (node_systemd_unit_state{name=\"dummy9.service\", state=\"failed\"} * -1)",
+  		            "format": "time_series",
+  		            "instant": true,
+  		            "interval": "1m",
+  		            "intervalFactor": 2,
+  		            "legendFormat": "",
+  		            "metric": "node_systemd_unit_state",
+  		            "refId": "A",
+  		            "step": 600
+  		          }
+  		        ],
+  		        "thresholds": "-0.9, 0.9",
+  		        "title": "Dummy9 Service",
+  		        "type": "singlestat",
+  		        "valueFontSize": "100%",
+  		        "valueMaps": [
+  		          {
+  		            "op": "=",
+  		            "text": "down",
+  		            "value": "-1"
+  		          },
+  		          {
+  		            "op": "=",
+  		            "text": "off",
+  		            "value": "0"
+  		          },
+  		          {
+  		            "op": "=",
+  		            "text": "up",
+  		            "value": "1"
+  		          }
+  		        ],
+  		        "valueName": "current"
+  		      },
+  		      {
+  		        "cacheTimeout": null,
+  		        "colorBackground": false,
+  		        "colorValue": true,
+  		        "colors": [
+  		          "rgba(245, 54, 54, 0.9)",
+  		          "rgba(120,120,120, 0.89)",
+  		          "rgba(50, 172, 45, 0.97)"
+  		        ],
+  		        "datasource": "prometheus2",
+  		        "format": "none",
+  		        "gauge": {
+  		          "maxValue": 100,
+  		          "minValue": 0,
+  		          "show": false,
+  		          "thresholdLabels": false,
+  		          "thresholdMarkers": true
+  		        },
+  		        "height": "50px",
+  		        "id": 15,
+  		        "interval": null,
+  		        "links": [],
+  		        "mappingType": 1,
+  		        "mappingTypes": [
+  		          {
+  		            "name": "value to text",
+  		            "value": 1
+  		          },
+  		          {
+  		            "name": "range to text",
+  		            "value": 2
+  		          }
+  		        ],
+  		        "maxDataPoints": 100,
+  		        "nullPointMode": "connected",
+  		        "nullText": null,
+  		        "postfix": "",
+  		        "postfixFontSize": "50%",
+  		        "prefix": "",
+  		        "prefixFontSize": "50%",
+  		        "rangeMaps": [
+  		          {
+  		            "from": "null",
+  		            "text": "N/A",
+  		            "to": "null"
+  		          }
+  		        ],
+  		        "span": 2,
+  		        "sparkline": {
+  		          "fillColor": "rgba(31, 118, 189, 0.18)",
+  		          "full": false,
+  		          "lineColor": "rgb(31, 120, 193)",
+  		          "show": false
+  		        },
+  		        "tableColumn": "",
+  		        "targets": [
+  		          {
+  		            "expr": "(node_systemd_unit_state{name=\"dummy10.service\", state=\"active\"} * 1) + ignoring(state) (node_systemd_unit_state{name=\"dummy10.service\", state=\"failed\"} * -1)",
+  		            "format": "time_series",
+  		            "instant": true,
+  		            "interval": "1m",
+  		            "intervalFactor": 2,
+  		            "legendFormat": "",
+  		            "metric": "node_systemd_unit_state",
+  		            "refId": "A",
+  		            "step": 600
+  		          }
+  		        ],
+  		        "thresholds": "-0.9, 0.9",
+  		        "title": "Dummy10 Service",
+  		        "type": "singlestat",
+  		        "valueFontSize": "100%",
+  		        "valueMaps": [
+  		          {
+  		            "op": "=",
+  		            "text": "down",
+  		            "value": "-1"
+  		          },
+  		          {
+  		            "op": "=",
+  		            "text": "off",
+  		            "value": "0"
+  		          },
+  		          {
+  		            "op": "=",
+  		            "text": "up",
+  		            "value": "1"
+  		          }
+  		        ],
+  		        "valueName": "current"
+  		      }
+  		    ],
+  		    "repeat": null,
+  		    "repeatIteration": null,
+  		    "repeatRowId": null,
+  		    "showTitle": false,
+  		    "title": "Dashboard Row",
+  		    "titleSize": "h6"
+  		  },
+  		  {
+  		    "collapse": false,
+  		    "height": 312,
+  		    "panels": [
+  		      {
+  		        "aliasColors": {},
+  		        "bars": false,
+  		        "dashLength": 10,
+  		        "dashes": false,
+  		        "datasource": "prometheus2",
+  		        "fill": 1,
+  		        "id": 16,
+  		        "legend": {
+  		          "alignAsTable": true,
+  		          "avg": false,
+  		          "current": true,
+  		          "max": false,
+  		          "min": false,
+  		          "rightSide": true,
+  		          "show": true,
+  		          "total": false,
+  		          "values": true
+  		        },
+  		        "lines": true,
+  		        "linewidth": 1,
+  		        "links": [],
+  		        "nullPointMode": "null as zero",
+  		        "percentage": false,
+  		        "pointradius": 5,
+  		        "points": false,
+  		        "renderer": "flot",
+  		        "seriesOverrides": [],
+  		        "spaceLength": 10,
+  		        "span": 12,
+  		        "stack": false,
+  		        "steppedLine": false,
+  		        "targets": [
+  		          {
+  		            "expr": "sum(node_systemd_unit_state{name=~\"^dummy.+\", state=~\"active|inactive|failed\"}) by (state)",
+  		            "format": "time_series",
+  		            "intervalFactor": 2,
+  		            "legendFormat": "{{ state }}",
+  		            "refId": "A"
+  		          }
+  		        ],
+  		        "thresholds": [],
+  		        "timeFrom": null,
+  		        "timeShift": null,
+  		        "title": "Services Overview",
+  		        "tooltip": {
+  		          "shared": true,
+  		          "sort": 0,
+  		          "value_type": "individual"
+  		        },
+  		        "type": "graph",
+  		        "xaxis": {
+  		          "buckets": null,
+  		          "mode": "time",
+  		          "name": null,
+  		          "show": true,
+  		          "values": []
+  		        },
+  		        "yaxes": [
+  		          {
+  		            "format": "short",
+  		            "label": null,
+  		            "logBase": 1,
+  		            "max": null,
+  		            "min": null,
+  		            "show": true
+  		          },
+  		          {
+  		            "format": "short",
+  		            "label": null,
+  		            "logBase": 1,
+  		            "max": null,
+  		            "min": null,
+  		            "show": true
+  		          }
+  		        ]
+  		      }
+  		    ],
+  		    "repeat": null,
+  		    "repeatIteration": null,
+  		    "repeatRowId": null,
+  		    "showTitle": false,
+  		    "title": "Dashboard Row",
+  		    "titleSize": "h6"
+  		  }
+  		],
+  		"schemaVersion": 14,
+  		"style": "dark",
+  		"tags": [],
+  		"templating": {
+  		  "list": [
+  		    {
+  		      "allValue": null,
+  		      "current": {},
+  		      "datasource": "prometheus2",
+  		      "hide": 0,
+  		      "includeAll": false,
+  		      "label": null,
+  		      "multi": false,
+  		      "name": "Node",
+  		      "options": [],
+  		      "query": "label_values(node_systemd_unit_state, instance)",
+  		      "refresh": 1,
+  		      "regex": "",
+  		      "sort": 0,
+  		      "tagValuesQuery": "",
+  		      "tags": [],
+  		      "tagsQuery": "",
+  		      "type": "query",
+  		      "useTags": false
+  		    }
+  		  ]
+  		},
+  		"time": {
+  		  "from": "now-6h",
+  		  "to": "now"
+  		},
+  		"timepicker": {
+  		  "refresh_intervals": [
+  		    "5s",
+  		    "10s",
+  		    "30s",
+  		    "1m",
+  		    "5m",
+  		    "15m",
+  		    "30m",
+  		    "1h",
+  		    "2h",
+  		    "1d"
+  		  ],
+  		  "time_options": [
+  		    "5m",
+  		    "15m",
+  		    "1h",
+  		    "6h",
+  		    "12h",
+  		    "24h",
+  		    "2d",
+  		    "7d",
+  		    "30d"
+  		  ]
+  		},
+  		"timezone": "browser",
+  		"title": "Dummy Services Overview 2",
+  		"version": 1
+	},
+	"overwrite": true
+}
