@@ -1,4 +1,3 @@
----
 - name: Grafana installed
   yum:
     name: https://s3-us-west-2.amazonaws.com/grafana-releases/release/grafana-4.6.1-1.x86_64.rpm
@@ -9,6 +8,9 @@
     daemon_reload: yes
     enabled: yes
     state: started
+- name: Wait for Grafana to be started
+  wait_for:
+    port: 3000
 - name: Datasource in Grafana created
   uri: 
     url: "http://localhost:3000/api/datasources"
