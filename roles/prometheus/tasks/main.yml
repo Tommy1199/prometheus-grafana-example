@@ -1,4 +1,3 @@
----
 - name: Prometheus dir exists
   file:
     path: /home/prometheus/prometheus

@@ -1,4 +1,3 @@
----
 - name: Node exporter dir exists
   file:
     path: /home/prometheus/node_exporter

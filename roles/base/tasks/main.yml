@@ -1,4 +1,3 @@
----
 - name: Prometheus user exists
   user:
     name: prometheus
